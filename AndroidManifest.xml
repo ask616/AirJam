@@ -45,7 +45,8 @@
         <activity
             android:name="com.example.airjam.Drums"
             android:label="@string/app_name"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape" 
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="com.example.airjam.DRUMS" />
 
