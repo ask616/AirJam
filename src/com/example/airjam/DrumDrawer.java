@@ -6,9 +6,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 
 import com.xtr3d.extrememotion.api.Joint;
-import com.example.airjam.R;
 
 public class DrumDrawer {
 	
@@ -43,8 +43,8 @@ public class DrumDrawer {
 	boolean reiterate = true;
 
 	public void drawSkeleton(Canvas canvas, List<Joint> mJoints){
-		int lH = 125;
-		int lineHeight = 480 - lH;
+		//int lH = 240;
+		int lineHeight = mHeight/2;
 		
 		int divisions = 4;
 		int xInt = mWidth / divisions;
@@ -73,21 +73,23 @@ public class DrumDrawer {
 					if(leftUnder == true && reiterate == false){
 						System.out.println("----\nLEFT HAND HIT\n----");
 						if(x > 0 && x < xInt){
-							s1 = MediaPlayer.create(context, R.raw.bass);
+							s1.create(context, R.raw.bass);
 							s1.start();
 						}else if(x > xInt && x < 2*xInt){
-							s1 = MediaPlayer.create(context, R.raw.ding);
+							s1.create(context, R.raw.ding);
+							
 							s1.start();
 						}else if(x > 2*xInt && x < 3*xInt){
-							s1 = MediaPlayer.create(context, R.raw.cymbal);
+							s1.create(context, R.raw.cymbal);
 							s1.start();
 						}else if(x > 3*xInt && x < 4*xInt){
-							s1 = MediaPlayer.create(context, R.raw.snare);
+							s1.create(context, R.raw.snare);
 							s1.start();
 						}
 					}
 //					System.out.println("LEFT HAND: Working...");
 					reiterate = true;
+					//s1.release();
 				}else{
 					leftUnder = false;
 					reiterate = true;
@@ -109,21 +111,24 @@ public class DrumDrawer {
 					if(rightUnder == true && reiterate == false){
 						System.out.println("----\nRIGHT HAND HIT\n----");
 						if(x > 0 && x < xInt){
-							s1 = MediaPlayer.create(context, R.raw.bass);
+							s1.create(context, R.raw.bass);
+							//s1.setDataSource();
 							s1.start();
 						}else if(x > xInt && x < 2*xInt){
-							s1 = MediaPlayer.create(context, R.raw.ding);
+							s1.create(context, R.raw.ding);
 							s1.start();
 						}else if(x > 2*xInt && x < 3*xInt){
-							s1 = MediaPlayer.create(context, R.raw.cymbal);
+							s1.create(context, R.raw.cymbal);
 							s1.start();
 						}else if(x > 3*xInt && x < 4*xInt){
-							s1 = MediaPlayer.create(context, R.raw.snare);
+							s1.create(context, R.raw.snare);
 							s1.start();
 						}
+						
 					}
 //					System.out.println("LEFT HAND: Working...");
 					reiterate = true;
+					
 				}else{
 					rightUnder = false;
 					reiterate = true;
@@ -143,6 +148,10 @@ public class DrumDrawer {
 		mPoints[31] = newHipCenterY;
 		mPaint.setARGB(255, 255, 127, 36);
 		canvas.drawCircle(newHipCenterX, newHipCenterY, 15, mPaint);
+		
+		mPaint.setARGB(255, 255, 127, 36);
 
+		mPaint.setStrokeWidth(20);
+		canvas.drawLine(0, lineHeight, mWidth, lineHeight, mPaint);
 	}
 }

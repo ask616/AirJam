@@ -106,7 +106,7 @@ public class Drums extends Activity {
 		mCameraLayout.setLayoutParams(new RelativeLayout.LayoutParams(widthTemp/3, heightTemp/4));
 		mCameraLayout.setX(widthTemp-mCameraLayout.getWidth());
 		mCameraLayout.setY(heightTemp-mCameraLayout.getHeight());
-		
+		//mCameraLayout.setLayoutParams(new RelativeLayout.LayoutParams(0, 0));
 		//mCameraLayout.setVisibility(View.);
 		
 		// Hog the entire screen and keep it on. Force landscape orientation.
@@ -139,8 +139,8 @@ public class Drums extends Activity {
 		{
 			LayoutParams params = mCameraLayout.getLayoutParams();
 			DisplayMetrics metrics = getResources().getDisplayMetrics();
-			final int width = metrics.widthPixels/3;
-			final int height = metrics.heightPixels/4;
+			final int width = metrics.widthPixels;
+			final int height = metrics.heightPixels;
 			params.height = height;
 			params.width = width;
 		}
@@ -293,9 +293,9 @@ public class Drums extends Activity {
 					if (matRgb == null){ 
 						matRgb = new Mat(HEIGHT, WIDTH, CvType.CV_8UC3);
 					}
-					matRgb.put(0, 0, frameInfo.getRgbImage());
-					Utils.matToBitmap(matRgb, mRgb);
-					canvas.drawBitmap(mRgb, 0, 0, null);
+					//matRgb.put(0, 0, frameInfo.getRgbImage());
+					//Utils.matToBitmap(matRgb, mRgb);
+					//canvas.drawBitmap(mRgb, 0, 0, null);
 				}
 			}
 

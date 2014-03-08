@@ -64,7 +64,7 @@ public class AsyncFrameFetcher implements Runnable{
 			try {
 			    // Wait for synchronized frames from streams: Raw Image & Skeleton. Once all frames are received, they are locked until released.
 		        // Note that in case the skeleton is not needed to be drawn (e.g. calibration stage), using WaitForAnyFrame will result in better performance.
-				baseFrameList = mEMGenerator.waitForAllFrames(EnumSet.of(StreamType.RAW_IMAGE,StreamType.SKELETON,StreamType.WARNINGS), TIME_OUT_MILLIS);
+				baseFrameList = mEMGenerator.waitForAllFrames(EnumSet.of(StreamType.SKELETON,StreamType.WARNINGS), TIME_OUT_MILLIS);
 			} catch (Exception e) {
 				Log.e(TAG, "waitForAllFrames threw an exception: " + e.toString());
 			}
@@ -78,14 +78,11 @@ public class AsyncFrameFetcher implements Runnable{
 					if(frame.getStreamType() ==StreamType.SKELETON){
 						skeleton = ((SkeletonFrame)frame).getSkeletons().get(0);
 					}
-					else if(frame.getStreamType() == StreamType.RAW_IMAGE){
-						rgb = ((RawImageFrame)frame).getImageBytes();
-					}
 					else if(frame.getStreamType() == StreamType.WARNINGS){
 						warningsList = ((WarningsFrame)frame).getWarningsList();
 					}
 				}
-				mFrameInfo.set(new FrameInfo(skeleton, rgb, warningsList));
+				mFrameInfo.set(new FrameInfo(skeleton, warningsList));
 				
 				if (mNewFrameReadyListener!=null){
 					mNewFrameReadyListener.onNewFrameReady(getLatestFrameInfo());
