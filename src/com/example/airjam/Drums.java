@@ -71,14 +71,6 @@ public class Drums extends Activity {
 	
 	private StateType mLastSkeletonState = StateType.INITIALIZING;
 	
-	//DemoView always renders the joint positions as circles on the Canvas.
-	//It can also render the RGB received from the engine on the same Canvas, with 2 benefits:
-	//The joint render time is better, and it will show the RGB&skeleton data of the same frame id. (i.e. sync the RGB images
-	//with their respective joints.)
-	//If you set DRAW_BITMAP_EXPLICITLY to true, the DemoView will render the RGB.
-	//Otherwise, if it is set to false, another view (CameraPreview) will do the RGB rendering async with the skeleton data. 
-	//This approach should be used only if your application does not use the Canvas, and
-	//it is here, only as a reference for other applications which will not draw the skeleton, and therefore no syncing is needed. 
 	private final boolean DRAW_BITMAP_EXPLICITLY = true;
 
 	/** Call on every application resume **/
@@ -265,8 +257,8 @@ public class Drums extends Activity {
 		final int height = metrics.heightPixels;
 		
 		private DrumDrawer mSkeletonDrawer;
-		private final int WIDTH = width;
-		private final int HEIGHT = height;
+		private final int WIDTH = 480;
+		private final int HEIGHT = 360;
 		private Mat matRgb;
 		private Bitmap mRgb = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.RGB_565);
 		private boolean isFirstCall = true;
@@ -293,9 +285,9 @@ public class Drums extends Activity {
 					if (matRgb == null){ 
 						matRgb = new Mat(HEIGHT, WIDTH, CvType.CV_8UC3);
 					}
-					//matRgb.put(0, 0, frameInfo.getRgbImage());
-					//Utils.matToBitmap(matRgb, mRgb);
-					//canvas.drawBitmap(mRgb, 0, 0, null);
+					matRgb.put(0, 0, frameInfo.getRgbImage());
+					Utils.matToBitmap(matRgb, mRgb);
+					canvas.drawBitmap(mRgb, 0, 0, null);
 				}
 			}
 

@@ -2,6 +2,7 @@ package com.example.airjam;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -37,7 +38,7 @@ public class MainMenu extends Activity {
 	    
 	    return fadeOut;
 	}
-	
+
 	public Animation jamButtonSlide(final Button jamButton, final Button actualButton, final int height) {
 	    Animation jamButtonSlide = new TranslateAnimation(0,0,0, -(height/3));
 	    jamButtonSlide.setInterpolator(new AccelerateInterpolator());
@@ -161,6 +162,10 @@ public class MainMenu extends Activity {
 		jamButtonActual.setVisibility(View.GONE);
 		configButtonActual.setVisibility(View.GONE);
 		directionsButtonActual.setVisibility(View.GONE);
+		
+		jamButtonActual.setText("JAM!");
+		jamButtonActual.setTextSize(150);
+		jamButtonActual.setTextColor(Color.WHITE);
 		
 		
 		drumsButton.setOnClickListener(new OnClickListener() {

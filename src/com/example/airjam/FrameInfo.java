@@ -28,9 +28,10 @@ public class FrameInfo
 		return mWarningsList;
 	}
 	
-	protected FrameInfo(Skeleton skeleton, List<WarningType> warningsList) {
+	protected FrameInfo(Skeleton skeleton, byte[] rgbImage, List<WarningType> warningsList) {
 		super();
 		mSkeleton = skeleton;
+		mRgbImage = rgbImage;
 		mWarningsList = warningsList;
 	}
 }

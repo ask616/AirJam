@@ -73,17 +73,17 @@ public class DrumDrawer {
 					if(leftUnder == true && reiterate == false){
 						System.out.println("----\nLEFT HAND HIT\n----");
 						if(x > 0 && x < xInt){
-							s1.create(context, R.raw.bass);
+							s1 = MediaPlayer.create(context, R.raw.bass);
+							//s1.setDataSource();
 							s1.start();
 						}else if(x > xInt && x < 2*xInt){
-							s1.create(context, R.raw.ding);
-							
+							s1 = MediaPlayer.create(context, R.raw.ding);
 							s1.start();
 						}else if(x > 2*xInt && x < 3*xInt){
-							s1.create(context, R.raw.cymbal);
+							s1 = MediaPlayer.create(context, R.raw.cymbal);
 							s1.start();
 						}else if(x > 3*xInt && x < 4*xInt){
-							s1.create(context, R.raw.snare);
+							s1 = MediaPlayer.create(context, R.raw.snare);
 							s1.start();
 						}
 					}
@@ -111,17 +111,17 @@ public class DrumDrawer {
 					if(rightUnder == true && reiterate == false){
 						System.out.println("----\nRIGHT HAND HIT\n----");
 						if(x > 0 && x < xInt){
-							s1.create(context, R.raw.bass);
+							s1 = MediaPlayer.create(context, R.raw.bass);
 							//s1.setDataSource();
 							s1.start();
 						}else if(x > xInt && x < 2*xInt){
-							s1.create(context, R.raw.ding);
+							s1 = MediaPlayer.create(context, R.raw.ding);
 							s1.start();
 						}else if(x > 2*xInt && x < 3*xInt){
-							s1.create(context, R.raw.cymbal);
+							s1 = MediaPlayer.create(context, R.raw.cymbal);
 							s1.start();
 						}else if(x > 3*xInt && x < 4*xInt){
-							s1.create(context, R.raw.snare);
+							s1 = MediaPlayer.create(context, R.raw.snare);
 							s1.start();
 						}
 						
