@@ -84,9 +84,13 @@
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentLeft="true"
 		android:scaleType="fitCenter"
-	    android:textSize="25sp"
+	    android:textSize="45sp"
+	    android:gravity="center"
 	    android:layout_marginBottom="20dp"
 	    android:layout_marginLeft="20dp"
+	    android:text="Configurations"
+	    android:textColor="#fff"
+	    android:fontFamily="sans-serif-thin"
 	    android:background="@drawable/config_button"
 		/>
 		
@@ -98,7 +102,11 @@
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentLeft="true"
 		android:scaleType="fitCenter"
-	    android:textSize="25sp"
+	    android:textSize="45sp"
+	    android:text="Instructions"
+	    android:textColor="#fff"
+	    android:fontFamily="sans-serif-thin"
+	    android:gravity="center"
 	    android:layout_marginBottom="20dp"
 	    android:layout_marginLeft="20dp"
 	    android:background="@drawable/directions_button"
@@ -112,9 +120,14 @@
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentLeft="true"
 		android:scaleType="fitCenter"
-	    android:textSize="25sp"
+	    android:textSize="45sp"
+	    android:gravity="center"
+	    
 	    android:layout_marginBottom="20dp"
 	    android:layout_marginLeft="20dp"
+	    android:text="Configurations"
+	    android:textColor="#fff"
+	    android:fontFamily="sans-serif-thin"
 	    android:background="@drawable/config_button"
 		/>
 		
@@ -126,10 +139,25 @@
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentLeft="true"
 		android:scaleType="fitCenter"
-	    android:textSize="25sp"
+	    android:textSize="45sp"
+	    android:text="Instructions"
+	    android:textColor="#fff"
+	    android:fontFamily="sans-serif-thin"
+	    android:gravity="center"
 	    android:layout_marginBottom="20dp"
 	    android:layout_marginLeft="20dp"
 	    android:background="@drawable/directions_button"
 		/>
+
+		<TextView
+		    android:id="@+id/jamText"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignBaseline="@id/jamButton"
+		    android:fontFamily="sans-serif-thin"
+		    android:textStyle="italic"
+		    android:text="JAM!"
+		    android:textColor="#fff"
+		    android:textSize="150dp" />
 	
 </RelativeLayout>

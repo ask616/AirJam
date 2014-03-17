@@ -5,11 +5,6 @@ import java.util.List;
 import com.xtr3d.extrememotion.api.Skeleton;
 import com.xtr3d.extrememotion.api.WarningType;
 
-/**
- * Contains the extreme-motion data of a full single-frame, including the source rgb-image, 
- * the skeleton data, and warnings.
- * @author assafl
- */
 public class FrameInfo
 {
 	Skeleton mSkeleton;

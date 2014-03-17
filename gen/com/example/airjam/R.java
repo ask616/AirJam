@@ -38,19 +38,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class drawable {
         public static final int calibration_icon=0x7f020000;
         public static final int config_button=0x7f020001;
-        public static final int directions_button=0x7f020002;
-        public static final int drum_logo=0x7f020003;
-        public static final int drums_button=0x7f020004;
-        public static final int guitar_button=0x7f020005;
-        public static final int guitar_logo=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int jam_button=0x7f020008;
-        public static final int logo=0x7f020009;
+        public static final int config_icon=0x7f020002;
+        public static final int directions_button=0x7f020003;
+        public static final int drum_logo=0x7f020004;
+        public static final int drums_button=0x7f020005;
+        public static final int guitar_button=0x7f020006;
+        public static final int guitar_logo=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int jam_button=0x7f020009;
+        public static final int logo=0x7f02000a;
     }
     public static final class id {
         public static final int FPSText=0x7f0a0007;
         public static final int RelativeLayout1=0x7f0a0009;
-        public static final int action_settings=0x7f0a0013;
+        public static final int action_settings=0x7f0a0014;
         public static final int button=0x7f0a000b;
         public static final int button2=0x7f0a000c;
         public static final int calibIcon=0x7f0a0003;
@@ -61,6 +62,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int directionsButtonSprite=0x7f0a0010;
         public static final int jamButton=0x7f0a000e;
         public static final int jamButtonSprite=0x7f0a000d;
+        public static final int jamText=0x7f0a0013;
         public static final int leftSide=0x7f0a000a;
         public static final int relativeLayout=0x7f0a0001;
         public static final int renderingLayout=0x7f0a0006;

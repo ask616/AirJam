@@ -16,13 +16,7 @@ import com.xtr3d.extrememotion.api.StreamType;
 import com.xtr3d.extrememotion.api.WarningType;
 import com.xtr3d.extrememotion.api.WarningsFrame;
 
-/**
- * The ExtremeMotionGenerator provides API for blocking-wait untill an input arrives.
- * In this class, we create a seperate thread which uses that API and a-synchronically call the NewFrameReadyListener
- * each time a new rgb-image/skeleton arrives.
- * @author assafl
- *
- */
+
 public class AsyncFrameFetcher implements Runnable{	
 
 	private static final String TAG = "EXTREME_MOTION";

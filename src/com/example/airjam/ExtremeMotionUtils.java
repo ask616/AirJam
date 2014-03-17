@@ -9,15 +9,6 @@ import android.view.View;
 import com.xtr3d.extrememotion.api.ExtremeMotionGenerator;
 import com.xtr3d.extrememotion.api.StreamType;
 
-/**
- * Utility class with two functions:
- * 1. Inits the AsyncFrameFetcher, which registers a listener (NewFrameReadyListener) to be waked-up 
- * each time a new rgb/skeleton data is found in the sdk.
- * 2. Life-cycle methods which should be called on the activity onCreate,onResume,onStop,onDestroy
- * 
- * @author assafl
- *
- */
 public class ExtremeMotionUtils {
 
 	private static final String TAG = "EXTREME_MOTION";

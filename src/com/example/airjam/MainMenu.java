@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +19,8 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 
 public class MainMenu extends Activity {
 
@@ -38,8 +41,8 @@ public class MainMenu extends Activity {
 	    
 	    return fadeOut;
 	}
-
-	public Animation jamButtonSlide(final Button jamButton, final Button actualButton, final int height) {
+	
+	public Animation jamButtonSlide(final Button jamButton, final Button actualButton, final TextView jamText, final int height,final int width,final boolean isGuitar) {
 	    Animation jamButtonSlide = new TranslateAnimation(0,0,0, -(height/3));
 	    jamButtonSlide.setInterpolator(new AccelerateInterpolator());
 	    jamButtonSlide.setDuration(300);
@@ -51,6 +54,15 @@ public class MainMenu extends Activity {
 	            {
 	                  jamButton.setVisibility(View.GONE);
 	                  actualButton.setVisibility(View.VISIBLE);
+	                  	if(isGuitar) {
+	                  		jamText.setX(135);
+	                  	} else {
+	                  		jamText.setX(width/2+135);
+	                  	}
+	          			jamText.setY(height-(height/3)+90);
+	                  jamText.setVisibility(View.VISIBLE);
+	                  
+	                  
 	            }
 	            public void onAnimationRepeat(Animation animation) {}
 	            public void onAnimationStart(Animation animation) {}
@@ -131,6 +143,7 @@ public class MainMenu extends Activity {
 		final Button directionsButton = (Button) findViewById(R.id.directionsButtonSprite);
 		final Button configButtonActual = (Button) findViewById(R.id.configButton);
 		final Button directionsButtonActual = (Button) findViewById(R.id.directionsButton);
+		final TextView jamText = (TextView) findViewById(R.id.jamText);
 		
 		drumsButton.setLayoutParams(new RelativeLayout.LayoutParams(width/3, width/3));
 		guitarButton.setLayoutParams(new RelativeLayout.LayoutParams(width/3, width/3));
@@ -140,6 +153,8 @@ public class MainMenu extends Activity {
 		directionsButton.setLayoutParams(new RelativeLayout.LayoutParams(width/3, height/7));
 		configButtonActual.setLayoutParams(new RelativeLayout.LayoutParams(width/3, height/7));
 		directionsButtonActual.setLayoutParams(new RelativeLayout.LayoutParams(width/3, height/7));
+		
+		
 		
 		drumsButton.setX(width/4-(width/6));
 		guitarButton.setX(3*(width/4)-(width/6));
@@ -162,10 +177,9 @@ public class MainMenu extends Activity {
 		jamButtonActual.setVisibility(View.GONE);
 		configButtonActual.setVisibility(View.GONE);
 		directionsButtonActual.setVisibility(View.GONE);
-		
-		jamButtonActual.setText("JAM!");
-		jamButtonActual.setTextSize(150);
-		jamButtonActual.setTextColor(Color.WHITE);
+		jamText.setVisibility(View.GONE);
+
+		jamText.bringToFront();
 		
 		
 		drumsButton.setOnClickListener(new OnClickListener() {
@@ -176,7 +190,7 @@ public class MainMenu extends Activity {
 				if(firstClick.getValue()) {
 					firstClick.setValue(false);
 				    guitarButton.startAnimation(fadeOutButton(guitarButton));
-				    jamButton.startAnimation(jamButtonSlide(jamButton, jamButtonActual, height));
+				    jamButton.startAnimation(jamButtonSlide(jamButton, jamButtonActual, jamText, height, width,false));
 				    configButton.startAnimation(menuButtonSlide(configButton, directionsButton, configButtonActual, directionsButtonActual, -(width/2), false));
 				    directionsButton.startAnimation(menuButtonSlide(configButton, directionsButton, configButtonActual, directionsButtonActual, -(width/2), true));
 				
@@ -225,7 +239,7 @@ public class MainMenu extends Activity {
 				directionsButtonActual.setX((width/4)-(width/6));			    
 			    
 			    drumsButton.startAnimation(fadeOutButton(drumsButton));
-			    jamButton.startAnimation(jamButtonSlide(jamButton, jamButtonActual, height));
+			    jamButton.startAnimation(jamButtonSlide(jamButton, jamButtonActual, jamText,height,width,true));
 			    configButton.startAnimation(menuButtonSlide(configButton, directionsButton, configButtonActual, directionsButtonActual, (width/2), false));
 			    directionsButton.startAnimation(menuButtonSlide(configButton, directionsButton, configButtonActual, directionsButtonActual, (width/2), true));
 			  
@@ -259,6 +273,13 @@ public class MainMenu extends Activity {
 		});
 	}
 
+	@Override
+	public void onBackPressed(){
+		Intent intent = getIntent();
+		finish();
+		startActivity(intent);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

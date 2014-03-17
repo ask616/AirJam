@@ -27,21 +27,9 @@ import com.xtr3d.extrememotion.api.Joint;
 import com.xtr3d.extrememotion.api.Skeleton.StateType;
 import com.xtr3d.extrememotion.api.WarningType;
 
-/**
- * A sample application to demonstrate XTR3D Android Skeleton API
- * 
- * @author tom
- * @author zvika
- * 
- */
 public class Drums extends Activity {
 	
 
-	/**
-	 * This is responsible of obtaining camera-frames for processing. Including
-	 * this in our view hierarchy is essential in allowing the camera stream
-	 * processing.
-	 */
 	private View mPreviewView;
 
 	/** Draws skeleton joints position using colored circles */
